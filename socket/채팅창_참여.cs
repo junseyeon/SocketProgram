@@ -11,9 +11,16 @@ namespace socket
 {
     public partial class 채팅창_참여 : Form
     {
+        public int protNum;
+
         public 채팅창_참여()
         {
             InitializeComponent();
+        }
+
+        private void Connectip_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

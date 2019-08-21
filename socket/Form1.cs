@@ -15,5 +15,17 @@ namespace socket
         {
             InitializeComponent();
         }
+
+        private void Serverbtn_Click(object sender, EventArgs e)
+        {
+            Form ServerForm = new 채팅창_주인방();
+            ServerForm.Show();
+        }
+
+        private void Clientbtn_Click(object sender, EventArgs e)
+        {
+            Form ClientForm = new 채팅창_참여();
+            ClientForm.Show();
+        }
     }
 }

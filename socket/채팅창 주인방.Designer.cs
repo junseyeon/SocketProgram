@@ -30,15 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.roomport = new System.Windows.Forms.TextBox();
+            this.roomip = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.serveropenbtn = new System.Windows.Forms.Button();
+            this.serverclosebtn = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.servernamebtn = new System.Windows.Forms.Button();
+            this.servername = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -48,32 +48,33 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.roomport);
+            this.groupBox1.Controls.Add(this.roomip);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(432, 110);
+            this.groupBox1.Size = new System.Drawing.Size(408, 110);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "채팅방 정보";
             // 
-            // textBox2
+            // roomport
             // 
-            this.textBox2.Location = new System.Drawing.Point(96, 68);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(258, 26);
-            this.textBox2.TabIndex = 3;
+            this.roomport.Location = new System.Drawing.Point(96, 72);
+            this.roomport.Name = "roomport";
+            this.roomport.Size = new System.Drawing.Size(258, 26);
+            this.roomport.TabIndex = 7;
+            this.roomport.TextChanged += new System.EventHandler(this.Roomport_TextChanged);
             // 
-            // textBox1
+            // roomip
             // 
-            this.textBox1.Location = new System.Drawing.Point(96, 30);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(258, 26);
-            this.textBox1.TabIndex = 2;
+            this.roomip.Location = new System.Drawing.Point(96, 25);
+            this.roomip.Name = "roomip";
+            this.roomip.Size = new System.Drawing.Size(258, 26);
+            this.roomip.TabIndex = 6;
+            this.roomip.TextChanged += new System.EventHandler(this.Roomip_TextChanged);
             // 
             // label2
             // 
@@ -93,28 +94,31 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "IP";
             // 
-            // button1
+            // serveropenbtn
             // 
-            this.button1.Location = new System.Drawing.Point(461, 25);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(61, 97);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "열기";
-            this.button1.UseVisualStyleBackColor = true;
+            this.serveropenbtn.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.serveropenbtn.Location = new System.Drawing.Point(435, 25);
+            this.serveropenbtn.Name = "serveropenbtn";
+            this.serveropenbtn.Size = new System.Drawing.Size(68, 97);
+            this.serveropenbtn.TabIndex = 1;
+            this.serveropenbtn.Text = "열기";
+            this.serveropenbtn.UseVisualStyleBackColor = true;
+            this.serveropenbtn.Click += new System.EventHandler(this.Serveropenbtn_Click);
             // 
-            // button2
+            // serverclosebtn
             // 
-            this.button2.Location = new System.Drawing.Point(528, 25);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(60, 97);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "닫기";
-            this.button2.UseVisualStyleBackColor = true;
+            this.serverclosebtn.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.serverclosebtn.Location = new System.Drawing.Point(519, 25);
+            this.serverclosebtn.Name = "serverclosebtn";
+            this.serverclosebtn.Size = new System.Drawing.Size(69, 97);
+            this.serverclosebtn.TabIndex = 2;
+            this.serverclosebtn.Text = "닫기";
+            this.serverclosebtn.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button3);
-            this.groupBox2.Controls.Add(this.textBox4);
+            this.groupBox2.Controls.Add(this.servernamebtn);
+            this.groupBox2.Controls.Add(this.servername);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.groupBox2.Location = new System.Drawing.Point(12, 140);
@@ -124,22 +128,22 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "내 정보";
             // 
-            // button3
+            // servernamebtn
             // 
-            this.button3.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button3.Location = new System.Drawing.Point(449, 34);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(97, 24);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "변경";
-            this.button3.UseVisualStyleBackColor = true;
+            this.servernamebtn.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.servernamebtn.Location = new System.Drawing.Point(449, 34);
+            this.servernamebtn.Name = "servernamebtn";
+            this.servernamebtn.Size = new System.Drawing.Size(97, 24);
+            this.servernamebtn.TabIndex = 3;
+            this.servernamebtn.Text = "변경";
+            this.servernamebtn.UseVisualStyleBackColor = true;
             // 
-            // textBox4
+            // servername
             // 
-            this.textBox4.Location = new System.Drawing.Point(150, 34);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(258, 26);
-            this.textBox4.TabIndex = 2;
+            this.servername.Location = new System.Drawing.Point(150, 34);
+            this.servername.Name = "servername";
+            this.servername.Size = new System.Drawing.Size(258, 26);
+            this.servername.TabIndex = 2;
             // 
             // label4
             // 
@@ -170,8 +174,8 @@
             this.ClientSize = new System.Drawing.Size(605, 575);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.serverclosebtn);
+            this.Controls.Add(this.serveropenbtn);
             this.Controls.Add(this.groupBox1);
             this.Name = "채팅창_주인방";
             this.Text = "채팅창_주인방";
@@ -188,15 +192,15 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button serveropenbtn;
+        private System.Windows.Forms.Button serverclosebtn;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Button servernamebtn;
+        private System.Windows.Forms.TextBox servername;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.TextBox roomport;
+        private System.Windows.Forms.TextBox roomip;
     }
 }
